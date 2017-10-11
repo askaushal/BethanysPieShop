@@ -8,9 +8,10 @@ using BethanysPieShop.Models;
 namespace BethanysPieShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171010013457_AddShoppingcartItem")]
+    partial class AddShoppingcartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.1")
@@ -62,37 +63,12 @@ namespace BethanysPieShop.Migrations
                     b.ToTable("Pies");
                 });
 
-            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCartItem", b =>
-                {
-                    b.Property<int>("ShoppingCartItemId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("Amount");
-
-                    b.Property<int?>("PieId");
-
-                    b.Property<string>("ShoppingCartId");
-
-                    b.HasKey("ShoppingCartItemId");
-
-                    b.HasIndex("PieId");
-
-                    b.ToTable("ShoppingCartItems");
-                });
-
             modelBuilder.Entity("BethanysPieShop.Models.Pie", b =>
                 {
                     b.HasOne("BethanysPieShop.Models.Category", "Category")
                         .WithMany("Pies")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("BethanysPieShop.Models.ShoppingCartItem", b =>
-                {
-                    b.HasOne("BethanysPieShop.Models.Pie", "Pie")
-                        .WithMany()
-                        .HasForeignKey("PieId");
                 });
         }
     }
