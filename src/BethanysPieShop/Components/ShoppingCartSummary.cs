@@ -32,4 +32,4 @@ namespace BethanysPieShop.Views.Shared.Components.ShoppingCartSummary
             return View(shoppingCartViewModel);
         }
     }
-}
+                          }
