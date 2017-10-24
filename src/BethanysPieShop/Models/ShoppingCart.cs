@@ -117,7 +117,7 @@ namespace BethanysPieShop.Models
 
             //BETTER WAY!!
             var total = _appDbContext.ShoppingCartItems
-                .Where(s => s.ShoppingCartId == ShoppingCartId).Select(c => c.Pie.PieId * c.Amount).Sum();
+                .Where(s => s.ShoppingCartId == ShoppingCartId).Select(c => c.Pie.Price * c.Amount).Sum();
 
             return total;
         }

@@ -1,0 +1,18 @@
+﻿@using System.Net
+@using System.Threading.Tasks
+@model PieDetailViewModel
+<div class="thumbnail">
+    <img alt="@Model.Pie.Name" src="@Model.Pie.ImageUrl">
+    <div class="caption-full">
+        <h3 class="pull-right">@Model.Pie.Price</h3>
+        <h3>
+            <a href="#">@Model.Pie.Name</a>
+        </h3>
+        <h4>@Model.Pie.ShortDescription</h4>
+        <p>@Model.Pie.LongDescription</p>
+        <p class="button">
+            <a class="btn btn-primary" asp-controller="ShoppingCart" asp-action="AddToShoppingCart"
+               asp-route-pieId="@Model.Pie.PieId">Add to cart</a>
+        </p>
+    </div>
+</div>

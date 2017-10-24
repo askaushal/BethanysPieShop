@@ -45,5 +45,13 @@ namespace BethanysPieShop
                 CurrentCategory = currentCategory
             });
         }
+
+        [Route("[controller]/Details/{id}")]
+        public IActionResult Details(int id)
+        {
+            var pie = _pieRepository.GetPieById(id);
+
+            return View(new PieDetailViewModel() { Pie = pie });
+        }
     }
 }
